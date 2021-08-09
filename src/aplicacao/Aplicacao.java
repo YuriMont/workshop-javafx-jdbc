@@ -7,8 +7,8 @@ package aplicacao;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 /**
@@ -19,7 +19,10 @@ public class Aplicacao extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/MainView.fxml"));
+        ScrollPane root = FXMLLoader.load(getClass().getResource("/gui/MainView.fxml"));
+        
+        root.setFitToHeight(true);
+        root.setFitToWidth(true);
         
         Scene scene = new Scene(root);
         
