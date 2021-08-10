@@ -5,6 +5,7 @@
  */
 package aplicacao;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,23 +18,27 @@ import javafx.stage.Stage;
  */
 public class Aplicacao extends Application {
     
+    private static Scene mainScene;
+
     @Override
-    public void start(Stage stage) throws Exception {
-        ScrollPane root = FXMLLoader.load(getClass().getResource("/gui/MainView.fxml"));
-        
+    public void start(Stage stage){
+        try{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
+        ScrollPane root = loader.load();
         root.setFitToHeight(true);
         root.setFitToWidth(true);
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
+        mainScene  = new Scene(root);
+        stage.setScene(mainScene);
         stage.setTitle("Aplicação JavaFX Simples");
         stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
-
-    /**
-     * @param args the command line arguments
-     */
+    
+    public static Scene getMainScene(){
+        return mainScene;
+    }
     public static void main(String[] args) {
         launch(args);
     }
