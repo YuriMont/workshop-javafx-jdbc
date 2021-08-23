@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="137.0" prefWidth="352.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+<AnchorPane id="AnchorPane" prefHeight="137.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DepartmentFormControler">
    <children>
       <GridPane layoutX="188.0" layoutY="110.0" prefHeight="94.0" prefWidth="410.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -26,13 +25,13 @@
          <children>
             <Label text="Id" />
             <Label text="Nome" GridPane.rowIndex="1" />
-            <TextField editable="false" style="-fx-border-color: #000000;" GridPane.columnIndex="1" />
-            <TextField style="-fx-border-color: #000000;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label textFill="#fc0606" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtId" editable="false" style="-fx-border-color: #000000;" GridPane.columnIndex="1" />
+            <TextField fx:id="txtName" style="-fx-border-color: #000000;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="labelErroName" textFill="#fc0606" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="23.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-border-color: #000000;" text="Salvar" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-border-color: #000000;" text="Cancelar" />
+                  <Button fx:id="btSave" mnemonicParsing="false" onAction="#onBtSaveAction" prefHeight="25.0" prefWidth="75.0" style="-fx-border-color: #000000;" text="Salvar" />
+                  <Button fx:id="btCancel" mnemonicParsing="false" onAction="#onBtCancelAction" prefHeight="25.0" prefWidth="75.0" style="-fx-border-color: #000000;" text="Cancelar" />
                </children>
             </HBox>
          </children>
